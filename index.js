@@ -25,9 +25,9 @@ const stepForwardBtn = $("#step-forward-btn");
 const stepBackwardBtn = $("#step-backward-btn");
 const forwardBtn = $("#forward-btn");
 const backwardBtn = $("#backward-btn");
-const volumnRange = $("#volumn-range");
+const volumeRange = $("#volume-range");
 const zoomRange = $("#zoom-range");
-const volumnBtn = $("#volumn-btn");
+const volumeBtn = $("#volume-btn");
 const autoCenterBtn = $("#auto-center-btn");
 const audioRate = $("#audio-rate");
 let songIndex = 0;
@@ -155,16 +155,16 @@ stopBtn.addEventListener("click", (e) => {
   wavesurfer.stop();
 });
 
-volumnRange.addEventListener("change", (e) => {
+volumeRange.addEventListener("change", (e) => {
   wavesurfer.setMute(false);
   wavesurfer.setVolume(e.target.value);
-  volumnBtn.innerHTML = `<i class="fa fa-volume-up" aria-hidden="true"></i>`;
+  volumeBtn.innerHTML = `<i class="fa fa-volume-up" aria-hidden="true"></i>`;
 });
 
-volumnBtn.addEventListener("click", (e) => {
+volumeBtn.addEventListener("click", (e) => {
   wavesurfer.setMute(true);
-  volumnRange.value = 0;
-  volumnBtn.innerHTML = `<i class="fa fa-volume-off" aria-hidden="true"></i>`;
+  volumeRange.value = 0;
+  volumeBtn.innerHTML = `<i class="fa fa-volume-off" aria-hidden="true"></i>`;
 });
 
 zoomRange.addEventListener('change', (e) => {
@@ -209,7 +209,7 @@ audioRate.addEventListener('change', (e) => {
 });
 
 wavesurfer.on('ready', function () {
-  volumnRange.value = wavesurfer.getVolume();
+  volumeRange.value = wavesurfer.getVolume();
   wavesurfer.stop();
 });
 
@@ -226,7 +226,7 @@ wavesurfer.on('region-dblclick', e => {
   if (res) {
     e.remove();
   }
-})
+});
 
 wavesurfer.regions.list.r1.on('update', e => {
   console.log('update');
